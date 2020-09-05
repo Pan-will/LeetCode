@@ -2,7 +2,6 @@
 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
 """
 
-
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
