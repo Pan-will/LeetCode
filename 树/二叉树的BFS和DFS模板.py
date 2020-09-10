@@ -59,6 +59,7 @@ class Solution():
             cur = temp.right
         return res
 
+    # 递归式
     def pre_DFS2(self, root):
         # 特判：树根为空
         if not root:
@@ -73,7 +74,7 @@ class Solution():
     """
     中序遍历式DFS
     """
-
+    # 迭代式
     def mid_DFS(self, root):
         # 特判：树根为空
         if not root:
@@ -93,6 +94,7 @@ class Solution():
             cur = temp.right
         return res
 
+    # 递归式
     def mid_DFS2(self, root):
         # 特判：树根为空
         if not root:
@@ -107,7 +109,7 @@ class Solution():
     """
     后序遍历式DFS
     """
-
+    # 迭代式
     def post_DFS(self, root):
         # 特判：树根为空
         if not root:
@@ -125,6 +127,7 @@ class Solution():
             cur = temp.left
         return res[::-1]
 
+    # 递归式
     def post_DFS2(self, root):
         # 特判：树根为空
         if not root:
