@@ -101,9 +101,9 @@ class Solution():
             return []
         # 返回值
         res = []
-        res += self.pre_DFS2(root.left)
+        res += self.mid_DFS2(root.left)
         res.append(root.val)
-        res += self.pre_DFS2(root.right)
+        res += self.mid_DFS2(root.right)
         return res
 
     """
@@ -134,7 +134,7 @@ class Solution():
             return []
         # 返回值
         res = []
-        res += self.pre_DFS2(root.left)
-        res += self.pre_DFS2(root.right)
+        res += self.post_DFS2(root.left)
+        res += self.post_DFS2(root.right)
         res.append(root.val)
         return res
