@@ -34,9 +34,9 @@ class Solution(object):
         """
         if not root:
             return True
-        return self.digui(root.left, root.right)
+        return self.helper(root.left, root.right)
 
-    def digui(self, left, right):
+    def helper(self, left, right):
         if not left and not right:
             return True
         if not left and right:
@@ -45,7 +45,7 @@ class Solution(object):
             return False
         if left.val != right.val:
             return False
-        return self.digui(left.left, right.right) and self.digui(left.right, right.left)
+        return self.helper(left.left, right.right) and self.helper(left.right, right.left)
 
 
 if __name__ == '__main__':

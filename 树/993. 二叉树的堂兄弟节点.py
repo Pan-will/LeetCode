@@ -22,9 +22,11 @@ class Solution(object):
         :type y: int
         :rtype: bool
         """
+        # 用字典记录每个节点的父节点、以及该节点的深度（从0计）
         parent = {}
         depth = {}
         self.dfs(parent, depth, root, None)
+        # 堂兄弟：不同父节点，但所处层数要相同
         return parent[x] != parent[y] and depth[x] == depth[y]
 
     def dfs(self, parent, depth, node, par=None):
