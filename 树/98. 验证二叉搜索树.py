@@ -24,6 +24,7 @@ class TreeNode(object):
 
 
 class Solution(object):
+    # 思路：BST的中序遍历应该是一个有序序列。
     def isValidBST(self, root):
         """
         :type root: TreeNode
