@@ -28,8 +28,26 @@ class TreeNode(object):
 
 
 class Solution(object):
-    # 思路：用前序式DFS，从root到叶子。
     def binaryTreePaths(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[str]
+        """
+        if not root:
+            return []
+        if not root.left and not root.right:
+            return [str(root.val)]
+        pathList = []
+        if root.left:
+            pathList += self.binaryTreePaths(root.left)
+        if root.right:
+            pathList += self.binaryTreePaths(root.right)
+        for index, path in enumerate(pathList):
+            pathList[index] = str(root.val) + "->" + path
+        return pathList
+
+    # 思路：用前序式DFS，从root到叶子。
+    def binaryTreePaths2(self, root):
         """
         :type root: TreeNode
         :rtype: List[str]
@@ -45,7 +63,7 @@ class Solution(object):
             if not root.left and not root.right:
                 res.append(road)
             else:
-                road += "->"
+                road += '->'
                 self.pre_DFS(root.left, res, road)
                 self.pre_DFS(root.right, res, road)
         return res
@@ -60,4 +78,4 @@ if __name__ == '__main__':
     root.right = node3
     node2.right = node5
     s = Solution()
-    print(s.binaryTreePaths(root))
+    print(s.binaryTreePaths2(root))
