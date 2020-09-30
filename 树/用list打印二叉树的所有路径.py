@@ -18,7 +18,7 @@ class Solution(object):
         self.pre_DFS(root, res, road)
         return res
 
-    # 前序式DFS
+    # 前序式DFS——用list返回二叉树的所有路径
     # 注意每趟递归前要将当前节点pop()掉
     def pre_DFS(self, node, res, road):
         # 当前节点为空，直接return

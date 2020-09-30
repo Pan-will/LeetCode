@@ -57,16 +57,22 @@ class Solution(object):
         return res
 
     def pre_order(self, node, total, res, road):
+        # 当前节点为空，直接return
         if not node:
             return
+        # 否则将当前节点加入路径中
         road.append(node.val)
+        # 目标值减掉当前节点的值
         total -= node.val
-
+        # 当前节点是叶子、且和为目标值，则将路径加入外层list中
         if total == 0 and not node.left and not node.right:
             res.append(list(road))
+        # 前序式递归当前节点的左右子树
         self.pre_order(node.left, total, res, road)
         self.pre_order(node.right, total, res, road)
+        # 每趟递归前将当前节点pop()
         road.pop()
+        # 返回外层list
         return res
 
 
