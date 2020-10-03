@@ -6,16 +6,32 @@
 输入：[2, 7, 11, 15], 9
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
-
-思路：双指针；
-每一趟遍历的前提：i<j;
-i指针从前往后，j指针从后往i;
-遇到满足条件的终止遍历并返回i、j;
 """
 
 
 class Solution(object):
+    # 字典
     def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        mydict = {}
+        for i, item in enumerate(nums):
+            if target - item in mydict.keys():
+                return [i, mydict[target - item]]
+            mydict[item] = i
+        return []
+
+    """
+    思路：双指针；
+    每一趟遍历的前提：i<j;
+    i指针从前往后，j指针从后往i;
+    遇到满足条件的终止遍历并返回i、j;
+    """
+
+    def twoSum2(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
@@ -24,7 +40,7 @@ class Solution(object):
         # 初始化双指针
         i, j = 0, len(nums) - 1
         result = []
-        for i in range(0, len(nums)-1):
+        for i in range(0, len(nums) - 1):
             while i < j:
                 if i < j and target - nums[i] != nums[j]:
                     j -= 1
@@ -33,7 +49,7 @@ class Solution(object):
                     result.append(j)
                     return result
             # 重置j指针：每一趟遍历j均从最后往前走
-            j = len(nums)-1
+            j = len(nums) - 1
             continue
         return result
 
