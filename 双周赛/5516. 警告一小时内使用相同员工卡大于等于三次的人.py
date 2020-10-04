@@ -18,10 +18,6 @@ import collections
 
 
 class Solution(object):
-    # 将24小时制的时分转换成秒数
-    def time2second(self, t):
-        h, m = t.strip().split(":")
-        return int(h) * 3600 + int(m) * 60
 
     def alertNames(self, keyName, keyTime):
         """
@@ -41,6 +37,11 @@ class Solution(object):
                 if v[mid] - v[slow] < 3600 and v[fast] - v[slow] >= 3600:
                     ans.append(k)
         return ans
+
+    # 将24小时制的时分转换成秒数
+    def time2second(self, t):
+        h, m = t.strip().split(":")
+        return int(h) * 3600 + int(m) * 60
 
 
 if __name__ == '__main__':
