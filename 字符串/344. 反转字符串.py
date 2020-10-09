@@ -14,16 +14,6 @@
 
 
 class Solution(object):
-    def reverseString3(self, s):
-        """
-        :type s: List[str]
-        :rtype: None Do not return anything, modify s in-place instead.
-        """
-        if not s:
-            return s
-        else:
-            return Solution().reverseString(s[1:]) + s[0]
-
     def reverseString(self, s):
         """
         :type s: List[str]
@@ -32,17 +22,15 @@ class Solution(object):
         return s[::-1]
 
     def reverseString2(self, s):
-        print(type(s), type(s[0]), s)
-        print(len(s))
         i, j = 0, len(s) - 1
         while i < j:
             s[i], s[j] = s[j], s[i]
             i += 1
             j -= 1
-        # print(type(s), type(s[0]), s)
         return s
 
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.reverseString(["h", "e", "l", "l", "o"]))
+    print(solution.reverseString2(["h", "e", "l", "l", "o"]))
+    print(solution.reverseString2(["h", "e", "l"]))
