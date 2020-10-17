@@ -14,6 +14,7 @@
 
 
 # Definition for a binary tree node.
+# 二叉树的结点结构
 class TreeNode(object):
     def __init__(self, x):
         self.val = x

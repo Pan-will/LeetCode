@@ -26,7 +26,7 @@ class Solution(object):
         """
         if s == "":
             return True
-        # 用集合来模拟栈
+        # 用list来模拟栈
         listStr = list(s)
         listLeft = ['(', '[', '{']
         listRight = [')', ']', '}']
