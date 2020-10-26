@@ -39,7 +39,7 @@ class Solution(object):
         # 返回值
         res = []
         for i in range(cycleNum):
-            if self.creArithmeticSeq(nums[l[i]:r[i]+1]):
+            if self.creArithmeticSeq(nums[l[i]:r[i] + 1]):
                 res.append(True)
             else:
                 res.append(False)
