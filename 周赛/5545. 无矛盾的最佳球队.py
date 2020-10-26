@@ -26,7 +26,7 @@ class Solution(object):
         for i in range(len(ages)):
             mydict[ages[i]] = scores[i]
         # 按得分将字典排序
-        sorted(mydict.items(), key=lambda d: d[1])
+        newList = sorted(mydict.items(), key=lambda d: d[1])
         ages = mydict.keys()
         scores = mydict.values()
         res = 0

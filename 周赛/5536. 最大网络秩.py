@@ -31,7 +31,6 @@ class Solution(object):
             for j in range(n):
                 if i == j:
                     continue
-
                 if [i, j] in roads or [j, i] in roads:
                     temp = res[i] + res[j] - 1
                 else:
