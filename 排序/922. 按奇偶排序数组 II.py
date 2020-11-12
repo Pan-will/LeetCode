@@ -22,6 +22,29 @@ class Solution(object):
         :type A: List[int]
         :rtype: List[int]
         """
+        # 原数组按奇偶数排个序，偶数在前，奇数在后
+        A.sort(key=lambda x: x % 2 == 0, reverse=True)
+        print("偶数在前，奇数在后：", A)
+        n = len(A)
+        if n < 3:
+            return A
+        if n % 2:
+            i, j = 1, n - 1
+        else:
+            i, j = 1, n - 2
+        while i < j:
+            A[i], A[j] = A[j], A[i]
+            i += 2
+            j -= 2
+        return A
+
+    # 先将原数组中的奇偶数分开；
+    # 再次遍历原数组，按照下标的奇偶分别放置奇偶数。
+    def sortArrayByParityII2(self, A):
+        """
+        :type A: List[int]
+        :rtype: List[int]
+        """
         list1 = []
         list2 = []
         for i in range(len(A)):
@@ -42,4 +65,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.sortArrayByParityII([4, 2, 5, 7]))
+    print(solution.sortArrayByParityII([4, 2,5,7]))
