@@ -20,25 +20,46 @@ class Solution(object):
         :type k: int
         :rtype: List[str]
         """
+        # 用字典统计每个单词的数量
         mydict = {}
         for word in words:
             if word in mydict:
                 mydict[word] += 1
             else:
                 mydict[word] = 1
-        mylist = sorted(mydict.items(), key=lambda x: x[1], reverse=True)[:k]
-        temp = []
+        # 按value域降序排列，返回值是list
+        mylist = sorted(mydict.items(), key=lambda x: x[1], reverse=True)
+        print(mylist)
+        # 设置临时容器，存放相同value值的单词
+        temp = [mylist[0][0]]
+        i, j = 0, 1
         ans = []
-        for i in range(1, k):
-            if mylist[i][1] == mylist[i - 1][1]:
-                temp.append(mylist[i - 1][0])
-            temp.sort()
-            ans += temp
-
-        return ans
+        while j < len(mylist):
+            if mylist[j][1] == mylist[i][1]:
+                # value值相同则将单词放入temp中，准备字母排序
+                temp.append(mylist[j][0])
+                # 指针后移
+                i += 1
+                j += 1
+            else:
+                # 将相同value值的按字母排序，加到ans中
+                temp.sort()
+                ans += temp
+                # temp清空，准备记录下一轮
+                temp = []
+                # 指针后移
+                i += 1
+                j += 1
+                # 开始记录新的一轮
+                temp.append(mylist[i][0])
+        # 最后一轮的temp还没有处理，别落下
+        temp.sort()
+        ans += temp
+        return ans[:k]
 
 
 if __name__ == '__main__':
     s = Solution()
-    # print(s.topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], k=4))
+    print(s.topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], k=4))
     print(s.topKFrequent(["love", "i", "leetcode", "i", "love", "coding"], k=2))
+    print(s.topKFrequent(["aaa", "aa", "a"], 1))
