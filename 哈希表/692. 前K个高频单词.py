@@ -10,8 +10,6 @@
     注意，按字母顺序 "i" 在 "love" 之前。
 """
 
-import collections
-
 
 class Solution(object):
     def topKFrequent(self, words, k):
