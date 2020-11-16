@@ -30,10 +30,11 @@ class OrderedStream(object):
         self.mydict[id] = [value]
         # 按id升序排
         mylist = sorted(self.mydict.items(), key=lambda x: x[0], reverse=False)
-        print(mylist)
+        # print(mylist)
         if id == self.ptr:
             # 找出从 id = ptr 开始的 最长 id 连续递增序列
             tarlist = mylist[mylist.index((id, [value])):]
+            print(tarlist)
 
 
 obj = OrderedStream(5)
