@@ -33,7 +33,7 @@ class Solution(object):
             else:
                 mydict[item] = 1
         # 按values域升序,返回值是一个list
-        list1 = sorted(mydict.items(),key=lambda x:x[1], reverse=False)
+        list1 = sorted(mydict.items(), key=lambda x: x[1], reverse=False)
         list2 = [0 for _ in range(list1[-1][1] + 1)]
         # list2中的空位个数
         empty = len(list2) - len(list1)
@@ -46,9 +46,8 @@ class Solution(object):
         for item in list2:
             if item > 1:
                 same.append(item)
-        print("same：",same)
-        # 遍历values域，统计相同数字出现的次数
-
+        print("same：", same)
+        # 遍历values域，统计相同字符出现的次数
 
 
 if __name__ == '__main__':
