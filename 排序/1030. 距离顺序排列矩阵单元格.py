@@ -27,6 +27,7 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         dist = [[i, j] for i in range(R) for j in range(C)]
+        # 按曼哈顿距离升序
         dist.sort(key=lambda x: abs(x[0] - r0) + abs(x[1] - c0))
         return dist
 
@@ -39,9 +40,8 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         # 返回值
-        dist_list = [[] for i in range(200)]
-        # print(dist_list)
-        # 计算距离并排序
+        dist_list = [[] for _ in range(200)]
+        # 计算曼哈顿距离并排序
         for i in range(R):
             for j in range(C):
                 distinct = abs(r0 - i) + abs(c0 - j)
@@ -59,4 +59,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.allCellsDistOrder(R=1, C=2, r0=0, c0=0))
+    print(solution.allCellsDistOrder(R=2, C=3, r0=0, c0=0))
