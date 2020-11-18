@@ -30,27 +30,34 @@ class Solution(object):
         :type S: str
         :rtype: List[str]
         """
+        # 特判
+        if not S:
+            return []
+        # 将字符串转成list类型
         lists = list(S)
-        lists.sort()
+        # 去原串长度
         n = len(lists)
-        visit = [0 for _ in range(n)]
-        self.dfs(lists, n, visit, [])
+        self.dfs(lists, 0, n, [])
         return self.res
 
-    def dfs(self, string, n, visit, temp):
+    def dfs(self, string, cur, n, temp):
         # 定义递归出口
         if len(temp) == len(string):
-            self.res.append(temp)
+            self.res.append("".join(temp))
             return
-        for i in range(n):
-            if not visit[i]:
-                if i > 0 and visit[i - 1] == 1 and string[i - 1] == string[i]:
-                    continue
-                visit[i] = 1
-                self.dfs(string, n, visit, temp+[string[i]])
-                visit[i] = 0
+        # 数字直接加
+        if string[cur].isdigit():
+            self.dfs(string, cur + 1, n, temp + [string[cur]])
+        # 小写字母
+        elif string[cur].islower():
+            self.dfs(string, cur + 1, n, temp + [string[cur]])
+            self.dfs(string, cur + 1, n, temp + [string[cur].upper()])
+        # 大写字母
+        elif string[cur].isupper():
+            self.dfs(string, cur + 1, n, temp + [string[cur]])
+            self.dfs(string, cur + 1, n, temp + [string[cur].lower()])
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.letterCasePermutation(S="3z4"))
+    print(s.letterCasePermutation(S="a1b2"))
