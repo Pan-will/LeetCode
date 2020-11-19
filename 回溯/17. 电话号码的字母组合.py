@@ -11,31 +11,35 @@
 class Solution(object):
     def __init__(self):
         self.res = []
-        self.mydict = {1: [], 2: ['a', 'b', 'c'], 3: ['d', 'e', 'f'],
-                       4: ['g', 'h', 'i'], 5: ['j', 'k', 'l'], 6: ['m', 'n', 'o'],
-                       7: ['p', 'q', 'r', 's'], 8: ['t', 'u', 'v'], 9: ['w', 'x', 'y', 'z']}
+        self.mydict = {1: "", 2: "abc", 3: "def",
+                       4: "ghi", 5: "jkl", 6: "mno",
+                       7: "pqrs", 8: "tuv", 9: "wxyz"}
 
     def letterCombinations(self, digits):
         """
         :type digits: str
         :rtype: List[str]
         """
-        # 将数字串转成list类型
-        nums = list(digits)
-        # 获取原串长度，返回值中的每一个串都是这个长度，用于定义递归出口
-        n = len(digits)
+        # 特判
+        if not digits:
+            return []
+        # 将数字串转成list[int]类型
+        nums = []
+        for ch in digits:
+            nums.append(int(ch))
+        self.dfs(nums, 0, [])
+        return self.res
 
-
-
-
-    def dfs(self, string, n, visit, temp):
-        """
-        :temp
-        :string
-        :n
-        :visit
-        :rtype
-        """
+    def dfs(self, nums, cur, temp):
+        # 定义递归出口：若临时串长度达到则找到一个新答案
+        if cur == len(nums):
+            self.res.append("".join(temp))
+            return
+        digits = self.mydict[nums[cur]]
+        for digit in digits:
+            temp.append(digit)
+            self.dfs(nums, cur + 1, temp)
+            temp.pop()
 
 
 if __name__ == '__main__':
