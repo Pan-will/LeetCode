@@ -21,7 +21,7 @@
 ]
 """
 
-
+#思路：用三个set标记当前位置所在的行、主、次对角线方向上是否合法。
 class Solution(object):
     def solveNQueens(self, n):
         """
@@ -48,7 +48,7 @@ class Solution(object):
         else:
             for i in range(n):
                 # if columns[i]: continue
-                # d1 = row - i + n - 1
+                # d1 = row - i
                 # if dia1[d1]: continue
                 # d2 = row + i
                 # if dia2[d2]: continue
