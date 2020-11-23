@@ -67,16 +67,16 @@ class Solution(object):
                 dia2.remove(row + i)
 
     def drawPath(self, queens, n):
-        board = []
+        path = []
         row = ["."] * n
         for i in range(n):
             row[queens[i]] = "Q"
-            board.append("".join(row))
+            path.append("".join(row))
             row[queens[i]] = "."
-        return board
+        return path
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""
-    """只能保证不在同行、同列"""
+    """ 下面两种方法只能保证不在同行、同列"""
     """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
     # 只能保证不在同行、同列
@@ -136,28 +136,26 @@ class Solution(object):
 
     def dfs2(self, n, res, queen, column, row):
         if row == n:
-            path = self.drawPath2(queen, n)
-            res.append(path)
+            path = self.drawPath(queen, n)
+            if path not in res:
+                res.append(path)
             return
         for i in range(n):
             if i in column:
                 continue
             queen[row] = i
             column.add(i)
-            self.dfs2(n, res, queen, column, i + 1)
+            self.dfs2(n, res, queen, column, row + 1)
             queen[row] = -1
             column.remove(i)
-
-    def drawPath2(self, queen, n):
-        ans = []
-        tmp = ["."] * n
-        for i in range(n):
-            tmp[queen[i]] = "Q"
-            ans.append("".join(tmp))
-            tmp[queen[i]] = "."
-        return ans
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.solveNQueens3(4))
+    ans = s.solveNQueens3(4)
+    print(len(ans))
+    for i in range(len(ans)):
+        for j in range(4):
+            print(ans[i][j])
+        print("\n")
+
