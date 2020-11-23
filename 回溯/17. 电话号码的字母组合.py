@@ -31,14 +31,17 @@ class Solution(object):
         return self.res
 
     def dfs(self, nums, cur, temp):
-        # 定义递归出口：若临时串长度达到则找到一个新答案
+        # 定义递归出口：若临时串长度达到要求，则找到一个新答案
         if cur == len(nums):
             self.res.append("".join(temp))
             return
         digits = self.mydict[nums[cur]]
         for digit in digits:
+            # 用临时串记录当前数字
             temp.append(digit)
+            # 递归
             self.dfs(nums, cur + 1, temp)
+            # 回退
             temp.pop()
 
 

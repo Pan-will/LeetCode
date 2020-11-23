@@ -33,7 +33,7 @@ class Solution(object):
         :type use_limit: int
         :rtype: int
         """
-        # 1:用字典，按标签统计所有值
+        # 用字典，按标签统计所有值
         mydict = {}
         i = 0
         n = len(labels)

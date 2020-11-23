@@ -37,14 +37,12 @@ class Solution(object):
                 dictb[item] += 1
             else:
                 dictb[item] = 1
-        print("合并前的两个字典分别是：")
         print(dicta, dictb)
         for k, v in dictb.items():
             if k in dicta.keys():
                 dicta[k] += v
             else:
                 dicta[k] = v
-        print("合并之后的字典：", dicta)
         res = []
         for k, v in dicta.items():
             if v == 1:

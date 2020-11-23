@@ -18,7 +18,6 @@ iterator.hasNext(); // 返回 false
 
 
 class CombinationIterator(object):
-
     def __init__(self, characters, combinationLength):
         """
         :type characters: str

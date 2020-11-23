@@ -14,7 +14,6 @@ class Solution(object):
             path = self.drawPath(queen, n)
             res.append(path)
             return
-        # 逐行分析
         for i in range(n):
             if i in column or row - i in dia1 or row + i in dia2:
                 continue

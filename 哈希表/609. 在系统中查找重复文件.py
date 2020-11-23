@@ -18,8 +18,6 @@
 """
 
 import re
-
-
 # 本题用dict做，思路很明确：用文件内容作key域，value域需要拼接，是文件全名。
 class Solution(object):
     def findDuplicate(self, paths):

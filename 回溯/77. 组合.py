@@ -37,6 +37,7 @@ class Solution(object):
         for i in range(begin, sizeN):
             if len(temp) > k:
                 break
+            # 递归
             self.dfs(nums, sizeN, k, i+1, temp+[nums[i]])
 
 
