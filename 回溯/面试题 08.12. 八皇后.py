@@ -21,7 +21,8 @@
 ]
 """
 
-#思路：用三个set标记当前位置所在的行、主、次对角线方向上是否合法。
+
+# 思路：用三个set标记当前位置所在的行、主、次对角线方向上是否合法。
 class Solution(object):
     def solveNQueens(self, n):
         """
@@ -56,14 +57,14 @@ class Solution(object):
                     continue
                 queens[row] = i
                 columns.add(i)
-                dia1.add(row-i)
-                dia2.add(row+i)
+                dia1.add(row - i)
+                dia2.add(row + i)
                 # 递归
                 self.helper(queens, columns, dia1, dia2, res, n, row + 1)
                 # 回退
                 columns.remove(i)
-                dia1.remove(row-i)
-                dia2.remove(row+i)
+                dia1.remove(row - i)
+                dia2.remove(row + i)
 
     def drawPath(self, queens, n):
         board = []
@@ -74,60 +75,89 @@ class Solution(object):
             row[queens[i]] = "."
         return board
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""
+    """只能保证不在同行、同列"""
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""只能保证不在同行、同列"""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    # 只能保证不在同行、同列
+    def solveNQueens2(self, n):
+        """
+        :type n: int
+        :rtype: List[List[str]]
+        """
+        res = []
+        # 调用函数，实参分别是n和存放当前皇后所在列的数组
+        self.dfs(n, [], res)
+        return res
 
+    def dfs(self, n, temp, res):
+        # 递归出口：当前路径长度为n，说明找到一个新方案
+        if len(temp) == n:
+            # 将新方案绘制成棋盘添加到res中并返回
+            res.append(self.drawAns(temp))
+            return
+        # 遍历各列
+        for i in range(n):
+            # 若当前列未在当前数组中，且对角线上没有皇后
+            if i not in temp and self.isLawful(temp, i):
+                temp.append(i)
+                self.dfs(n, temp, res)
+                temp.pop()
 
-# 只能保证不在同行、同列
-def solveNQueens2(self, n):
-    """
-    :type n: int
-    :rtype: List[List[str]]
-    """
-    res = []
-    # 调用函数，实参分别是n和存放当前皇后所在列的数组
-    self.dfs(n, [], res)
-    return res
+    # 判断当前位置的对角线上是否有皇后
+    def isLawful(self, path, k):
+        for i in range(len(path)):
+            if abs(path[i] - i) == abs(len(path) - k):
+                return False
+        return True
 
+    def drawAns(self, path):
+        # print("接下来要画的原始棋盘是：", path)
+        ans = []
+        temp = [["."] * len(path) for _ in range(len(path))]
+        # print("初始化的棋盘是：", temp)
+        for i in range(len(path)):
+            temp[i][path[i]] = "Q"
+        for item in temp:
+            ans.append("".join(item))
+        # print("规划好的棋盘是：", ans)
+        return ans
 
-def dfs(self, n, temp, res):
-    # 递归出口：当前路径长度为n，说明找到一个新方案
-    if len(temp) == n:
-        # 将新方案绘制成棋盘添加到res中并返回
-        res.append(self.drawAns(temp))
-        return
-    # 遍历各列
-    for i in range(n):
-        # 若当前列未在当前数组中，且对角线上没有皇后
-        if i not in temp and self.isLawful(temp, i):
-            temp.append(i)
-            self.dfs(n, temp, res)
-            temp.pop()
+    def solveNQueens3(self, n):
+        """
+        :type n: int
+        :rtype: List[List[str]]
+        """
+        res = []
+        queen = [-1] * n
+        column = set()
+        self.dfs2(n, res, queen, column, 0)
+        return res
 
+    def dfs2(self, n, res, queen, column, row):
+        if row == n:
+            path = self.drawPath2(queen, n)
+            res.append(path)
+            return
+        for i in range(n):
+            if i in column:
+                continue
+            queen[row] = i
+            column.add(i)
+            self.dfs2(n, res, queen, column, i + 1)
+            queen[row] = -1
+            column.remove(i)
 
-# 判断当前位置的对角线上是否有皇后
-def isLawful(self, path, k):
-    for i in range(len(path)):
-        if abs(path[i] - i) == abs(len(path) - k):
-            return False
-    return True
-
-
-def drawAns(self, path):
-    # print("接下来要画的原始棋盘是：", path)
-    ans = []
-    temp = [["."] * len(path) for _ in range(len(path))]
-    # print("初始化的棋盘是：", temp)
-    for i in range(len(path)):
-        temp[i][path[i]] = "Q"
-    for item in temp:
-        ans.append("".join(item))
-    # print("规划好的棋盘是：", ans)
-    return ans
+    def drawPath2(self, queen, n):
+        ans = []
+        tmp = ["."] * n
+        for i in range(n):
+            tmp[queen[i]] = "Q"
+            ans.append("".join(tmp))
+            tmp[queen[i]] = "."
+        return ans
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.solveNQueens(4))
+    print(s.solveNQueens3(4))

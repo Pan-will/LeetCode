@@ -1,4 +1,4 @@
-class Solution():
+class Solution(object):
     def solveNQueens(self, n):
         res = []
         queen = [-1] * n
@@ -9,9 +9,12 @@ class Solution():
         return res
 
     def dfs(self, n, res, queen, column, dia1, dia2, row):
+        # 递归出口
         if row == n:
             path = self.drawPath(queen, n)
             res.append(path)
+            return
+        # 逐行分析
         for i in range(n):
             if i in column or row - i in dia1 or row + i in dia2:
                 continue
