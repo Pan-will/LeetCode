@@ -45,6 +45,7 @@ class Solution(object):
         return "".join(stack).lstrip("0") or "0"
 
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.removeKdigits(num="10000", k=1))

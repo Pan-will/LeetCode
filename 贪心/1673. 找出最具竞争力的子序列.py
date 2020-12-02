@@ -41,9 +41,26 @@ class Solution(object):
         # 返回时抹去前导的-1，只要后面k个数字
         return stack[-k:]
 
+    # 给定nums和k，要求移除若干位后剩下k个数字，保持原序的前提下组成最大数
+    def findMax(self, nums, k):
+        stack = [0] * k
+        length = len(nums)
+        top = -1
+        remain = length - k
+        for i,num in enumerate(nums):
+            while top >= 0 and stack[top] < num and remain > 0:
+                top -= 1
+                remain -= 1
+            if top < k - 1:
+                top += 1
+                stack[top] = num
+            else:
+                remain -= 1
+        return stack
+
 
 if __name__ == '__main__':
     s = Solution()
     # print(s.mostCompetitive(nums=[3, 5, 2, 6], k=2))
     # print(s.mostCompetitive(nums=[2, 4, 3, 3, 5, 4, 9, 6], k=4))
-    print(s.mostCompetitive([71, 18, 52, 29, 55, 73, 24, 42, 66, 8, 80, 2], 3))
+    print(s.findMax([71, 18, 52, 29, 55, 73, 24, 42, 66, 8, 80, 2], 3))
