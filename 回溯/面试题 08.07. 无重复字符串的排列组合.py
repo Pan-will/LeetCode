@@ -38,8 +38,9 @@ class Solution(object):
 
     def dfs(self, Str, temp, visit, n):
         # 定义递归出口：temp长度与原串相等，则一个新的答案诞生
-        if len(Str) == len(temp):
+        if len(Str) == len(temp) and "".join(temp) not in self.res:
             self.res.append("".join(temp))
+            return
         # 否则，遍历原串，逐个取得字符拼凑temp
         else:
             for i in range(n):
@@ -59,4 +60,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.permutation("ab"))
+    print(s.permutation("aab"))
