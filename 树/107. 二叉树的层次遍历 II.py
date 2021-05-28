@@ -48,3 +48,21 @@ class Solution(object):
                 num -= 1
             ans.append(temp)
         return ans[::-1]
+
+    def levelOrderBottom2(self, root):
+        if not root:
+            return []
+        ans = []
+        queue = [root]
+        while queue:
+            temp = []
+            l = len(queue)
+            for i in range(l):
+                cur = queue.pop(0)
+                temp.append(cur.val)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            ans.append(temp)
+        return ans[::-1]
