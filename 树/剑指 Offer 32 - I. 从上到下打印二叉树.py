@@ -45,3 +45,22 @@ class Solution(object):
                 if node.right:
                     stack.append(node.right)
         return res
+
+    def layer(self, root):
+        if not root:
+            return []
+        ans = []
+        layer_stack = [root]
+        while layer_stack:
+            num = len(layer_stack)
+            temp = []
+            while num > 0:
+                cur = layer_stack.pop(0)
+                temp.append(cur.val)
+                if cur.left:
+                    layer_stack.append(cur.left)
+                if cur.right:
+                    layer_stack.append(cur.right)
+                num -= 1
+            ans.append(temp)
+        return ans
