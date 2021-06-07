@@ -18,32 +18,29 @@ class Solution:
         return pHead
 
     # 反转链表中（m,n）个节点
-    def ReverseList2(self, pHead, m, n):
-        if not pHead or not pHead.next or m == n:
-            return pHead
-        pre, ans = ListNode(0), ListNode(0)
-        # 记录头指针
-        ans.next = pHead
-        # 前部分不用反转的直接过
-        for i in range(m):
-            pre = pHead
-            pHead = pHead.next
-        # 记录反转部分的首节点
-        unhead = ListNode(0)
-        # 记录第n个节点
-        untail = pHead
-        # 开始反转
+    def ReverseList2(self, head, m, n):
+        if not head or not head.next or m == n:
+            return head
+        pre, ans = None, ListNode(0)
+        ans.next = head
+        for i in range(1, m):
+            pre = head
+            head = head.next
+        #       反转部分首节点
+        prehead = None
+        #       反转部分尾节点
+        tail = head
         for j in range(m, n + 1):
-            temp = pHead.next
-            pHead.next = unhead
-            unhead = pHead
-            pHead = temp
-        # 不是从头反转
+            temp = head.next
+            head.next = prehead
+            prehead = head
+            head = temp
+        #       不是从头反转的
         if m != 1:
-            pre.next = unhead
-        # 从头反转
+            pre.next = prehead
         else:
-            ans.next = unhead
-        if pHead:
-            untail.next = pHead
-        return ans
+            ans.next = prehead
+        #       n并非最后一个节点
+        if head:
+            tail.next = head
+        return ans.next
