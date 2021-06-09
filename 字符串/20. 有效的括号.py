@@ -34,7 +34,6 @@ class Solution(object):
         length = 0
         if listStr[0] in listRight or listStr[len(listStr) - 1] in listLeft:
             return False
-
         for num, ch in enumerate(listStr):
             if ch in listLeft:
                 result.append(ch)
@@ -63,3 +62,4 @@ if __name__ == '__main__':
     print(solution.isValid("[])"))
     print(solution.isValid("()"))
     print(solution.isValid(""))
+    print(solution.isValid("[["))

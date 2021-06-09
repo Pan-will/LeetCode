@@ -20,7 +20,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        nums = sorted(nums)
+        nums.sort()
         res = []
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
@@ -35,7 +35,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        nums = sorted(nums)
+        nums.sort()
         res = []
         for k in range(len(nums)):
             i, j = k + 1, len(nums) - 1
@@ -49,7 +49,6 @@ class Solution(object):
                     j -= 1
                 else:
                     i += 1
-
         return res
 
     def threeSum3(self, nums):

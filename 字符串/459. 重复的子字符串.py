@@ -19,7 +19,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        # 去字符串长度
+        # 取字符串长度
         length = len(s)
         # 遍历，下标一定要从1，而不能从0开始
         for i in range(1, length):
@@ -37,7 +37,7 @@ class Solution(object):
                 # 若标记为真, 则i为最小周期
                 if flag == 1:
                     return True
-        # 为找到最小周期
+        # 未找到最小周期
         return False
 
 if __name__ == '__main__':
