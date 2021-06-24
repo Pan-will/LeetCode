@@ -53,7 +53,6 @@ class Solution(object):
         """
         if not root:
             return True
-
         # 左、右子树深度
         heightLeft = self.treeDepth(root.left)
         heightRight = self.treeDepth(root.right)

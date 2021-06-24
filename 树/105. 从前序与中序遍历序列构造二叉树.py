@@ -14,8 +14,6 @@
     /  \
    15   7
 """
-
-
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
@@ -73,4 +71,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    s.buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
+    s.buildTree2([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
