@@ -128,12 +128,34 @@ def isBalance(root):
     else:
         return False
 
+
 # 递归求二叉树的高度
 def getDeep(root):
     if not root: return 0
     leftdeep = getDeep(root.left)
     rightdeep = getDeep(root.right)
     return leftdeep + 1 if leftdeep > rightdeep else rightdeep + 1
+
+
+# 判断是否完全二叉树
+def judgeComplete( root):
+    if not root: return True
+    queue = [root]
+    h = 0
+    while queue:
+        num = len(queue)
+        temp = []
+        while num > 0:
+            cur = queue.pop(0)
+            temp.append(cur.val)
+            if cur.left:
+                queue.append(cur.left)
+            if cur.right:
+                queue.append(cur.right)
+            num -= 1
+        if len(temp) != 2 ** h: return False
+        h += 1
+    return True
 
 
 root = TreeNode(1)
@@ -161,4 +183,4 @@ print("之字形遍历：", zhiLevelOrder(root))
 print("5和7的最新公共祖先是：", findFather(root, n5, n6).val)
 print("root树的高度为：", getDeep(root))
 print("root是不是平衡树？", isBalance(root))
-
+print("root是不是完全二叉树？", judgeComplete(root))
