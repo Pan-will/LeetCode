@@ -1,4 +1,3 @@
-#
 # lru design
 # @param operators int整型二维数组 the ops
 # @param k int整型 the k
@@ -18,8 +17,8 @@ class Solution:
                 # 缓存已满，退出最久没访问的kv
                 else:
                     # 先退出
-                    k, v = stack.pop(0)
-                    kv.pop(k)
+                    key, value = stack.pop(0)
+                    kv.pop(key)
                     # 存最新数据
                     stack.append([op[1], op[2]])
                     kv[op[1]] = op[2]
@@ -29,6 +28,7 @@ class Solution:
                 else:
                     temp = kv[op[1]]
                     res.append(temp)
+                    # 将刚才访问的元素设置为热门元素
                     stack.remove([op[1], temp])
                     stack.append([op[1], temp])
         return res

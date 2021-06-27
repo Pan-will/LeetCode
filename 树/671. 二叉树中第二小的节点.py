@@ -43,7 +43,11 @@ class Solution(object):
                 if node.right:
                     stack.append(node.right)
         temp.sort()
-        return list(set(temp))[1] if len(set(temp)) > 1 else -1
+        extra = temp[0]
+        for i in temp:
+            if i != extra:
+                return i
+        return -1
 
 
 if __name__ == '__main__':

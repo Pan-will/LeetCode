@@ -1,11 +1,5 @@
-string = "0000"
-for ch in string:
-    if ch.islower():
-        print(ch >= "f")
-    elif ch.isupper():
-        print(ch >= "F")
-
-
-a = set(string)
-print(len(a))
+a = set()
+arr = [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
+for num in arr:
+    a.add(num)
 print(a)

@@ -46,7 +46,20 @@ class Solution(object):
             k -= 1
         return nums
 
+    # 上面四个是顺时针，这个是逆时针
+    def rotate5(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+
+        nums[:] = (nums[i] for i in range(-(len(nums) - k % len(nums)), k % len(nums)))
+        return nums
+
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.rotate4([1, 2, 3, 4, 5, 6, 7], 3))
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    print(nums[0:-3])
+    print(solution.rotate5([1, 2, 3, 4, 5, 6, 7], 10))
