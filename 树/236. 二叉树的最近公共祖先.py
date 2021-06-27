@@ -2,6 +2,7 @@
 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
 """
 
+
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
@@ -30,8 +31,8 @@ class Solution(object):
             return None
         if p.val == root.val or q.val == root.val:
             return root
-        left = self.lowestCommonAncestor(root.left,p,q)
-        right = self.lowestCommonAncestor(root.right,p,q)
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
         if left and right:
             return root
         elif left and not right:
@@ -40,4 +41,3 @@ class Solution(object):
             return right
         else:
             return None
-
