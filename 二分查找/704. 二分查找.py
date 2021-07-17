@@ -25,7 +25,7 @@ class Solution(object):
         if i == j and nums[i] == target:
             return i
         while i <= j:
-            mid = i + int((j - i) / 2)
+            mid = i + (j - i) // 2
             if nums[mid] == target:
                 return mid
             elif nums[mid] < target:

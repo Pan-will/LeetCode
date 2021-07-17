@@ -16,8 +16,30 @@ class Solution(object):
         :rtype: List[int]
         """
         # 根据元素是否为偶数排列
-        return sorted(A, key=lambda num: num % 2 == 0, reverse=True)
+        return sorted(A, key=lambda num: num % 2 == 0)
+
+    def sortnumsrrayByParity2(self, nums):
+        if not nums:
+            return None
+        i, j = 0, len(nums) - 1
+        while i < j:
+            if nums[i] % 2 == 0 and nums[j] % 2 == 1:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+                j -= 1
+            elif nums[i] % 2 == 0 and nums[j] % 2 != 1:
+                j -= 1
+                continue
+            elif nums[i] % 2 != 0 and nums[j] % 2 == 1:
+                i += 1
+                continue
+            elif nums[i] % 2 == 1 and nums[j] % 2 == 0:
+                i += 1
+                j -= 1
+                continue
+        return nums
+
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.sortArrayByParity([6, 1, 2, 4]))
+    print(solution.sortArrayByParity2([6, 1, 2, 4]))

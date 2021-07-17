@@ -22,6 +22,7 @@ class Solution(object):
         # 特判：二者长度不同，返回False
         if len(pushed) != len(popped):
             return False
+
         # 模拟栈
         stack = []
         # 设置双指针，分别遍历pushed和popped
@@ -42,4 +43,4 @@ class Solution(object):
 if __name__ == '__main__':
     s = Solution()
     print(s.validateStackSequences(pushed=[1, 2, 3, 4, 5], popped=[4, 5, 3, 2, 1]))
-    print(s.validateStackSequences(pushed=[1, 2, 3, 4, 5], popped=[4, 3, 5, 1, 2]))
+    # print(s.validateStackSequences(pushed=[1, 2, 3, 4, 5], popped=[4, 3, 5, 1, 2]))

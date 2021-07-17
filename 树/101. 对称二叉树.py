@@ -43,10 +43,12 @@ class Solution(object):
         return self.digui(root.left, root.right)
 
     def digui(self, left, right):
-        if left.val != right.val:
-            return False
-        if not left or not right:
-            return False
         if not left and not right:
             return True
+        if not left and right:
+            return False
+        if left and not right:
+            return False
+        if left.val != right.val:
+            return False
         return self.digui(left.left, right.right) and self.digui(left.right, right.left)

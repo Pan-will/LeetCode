@@ -56,7 +56,7 @@ class Solution:
         # 用指针扫描文本串
         while ti < lent:
             if S[si] == T[ti]:
-                if si == lens-1:
+                if si == lens - 1:
                     res += 1
                     si = nextArr[si]
                     continue
@@ -72,14 +72,24 @@ class Solution:
         # 判空
         if not S or not T or lens > lent:
             return 0
-
         ans = 0
         for i in range(lent - lens + 1):
             if T[i: lens + i] == S:
                 ans += 1
         return ans
 
+    def myKmp(self, subStr, bigStr):
+        if not bigStr: return None
+        sizeSub = len(subStr)
+        res = 0
+        for i in range(len(bigStr)):
+            if bigStr[i] == subStr[0]:
+                if bigStr[i: i + sizeSub] == subStr:
+                    res += 1
+        return res
+
 
 if __name__ == '__main__':
     s = Solution()
     print(s.kmp("ababab", "abababab"))
+    print(s.myKmp("ababab", "ababab123456ababababab"))

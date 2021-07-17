@@ -39,5 +39,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.solve("(2*(3-4))*5"))
-    print(s.solve("1+2"))
+    print(s.solve("100+100"))

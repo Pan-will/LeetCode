@@ -9,17 +9,18 @@ class TreeNode(object):
 def preorder(root):
     if not root:
         return []
-    pre_stack = []
-    ans = []
+    stack = []
+    res = []
     cur = root
-    while pre_stack or cur:
+    while cur or stack:
         while cur:
-            ans.append(cur.val)
-            pre_stack.append(cur)
+            res.append(cur.val)
+            stack.append(cur)
             cur = cur.left
-        temp = pre_stack.pop()
+        temp = stack.pop()
         cur = temp.right
-    return ans
+    return res
+
 
 
 # 中序
