@@ -1,3 +1,7 @@
+"""
+操作数都是个位数，如3+2
+且仅支持加减法。
+"""
 class Solution:
     def opera(self, b, op, a):
         if op == "+":
@@ -10,7 +14,7 @@ class Solution:
     # 以括号为准，遇到左括号进栈，遇到右括号，出栈直到左括号；
     # 将计算的值入栈。直到遍历字符串完成。
     def solve(self, s):
-        # write code here
+        # 判空
         if not s:
             return 0
         stack = []
