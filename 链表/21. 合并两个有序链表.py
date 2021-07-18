@@ -39,6 +39,6 @@ class Solution(object):
             pre = pre.next
         # 把未遍历到的节点接到新链表的后面
         pre.next = l1 if l1 is not None else l2
-        # prehead初始化为空节点，要返回其next才是链表头结点
+        # prehead初始化为占位节点，要返回其next才是链表头结点
         # 单链表由其头结点确定
         return prehead.next
