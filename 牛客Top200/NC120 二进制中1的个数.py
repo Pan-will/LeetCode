@@ -1,9 +1,8 @@
 # -*- coding:utf-8 -*-
 class Solution:
     def NumberOf1(self, n):
-        if n < 0:
-            n = n & 0xffffffff
-        binNum = bin(n)[2:]
+        NC89
+        字符串变形
         arr = str(binNum)
         print(arr)
         res = 0
