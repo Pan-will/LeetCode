@@ -14,8 +14,9 @@ class Solution():
         self.quick_sort(arr, low, i-1)
         self.quick_sort(arr, i + 1, high)
 
+
 if __name__ == '__main__':
-    alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    alist = [0, 1, 2, 1]
     s = Solution()
     print(alist)
     s.quick_sort(alist, 0, len(alist) - 1)
