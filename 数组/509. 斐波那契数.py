@@ -20,6 +20,7 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 
 
 class Solution(object):
+    # 迭代
     def fib(self, N):
         """
         :type N: int
@@ -34,7 +35,13 @@ class Solution(object):
             fibs.append(fibs[i - 2] + fibs[i - 1])
         return fibs[-1]
 
+    # 递归
+    def fib_dg(self, n):
+        if n < 2: return n
+        return self.fib_dg(n-1) + self.fib_dg(n-2)
+
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.fib(0))
+    print(solution.fib(31))
+    print(solution.fib_dg(31))

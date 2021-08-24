@@ -26,6 +26,7 @@ class TreeNode(object):
 class Solution(object):
     def __init__(self):
         self.res = 0
+
     def diameterOfBinaryTree(self, root):
         """
         :type root: TreeNode

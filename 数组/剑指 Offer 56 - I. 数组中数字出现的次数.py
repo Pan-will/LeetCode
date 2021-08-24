@@ -31,7 +31,21 @@ class Solution(object):
                 res.append(nums[i])
         return res
 
+    def singleNumbers2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        if not nums: return []
+        nums.sort()
+        res = []
+        for i in range(1, len(nums), 2):
+            if nums[i] != nums[i - 1]:
+                res.append(nums[i-1])
+                continue
+        return res
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.singleNumbers(nums=[4, 1, 4, 6]))
+    print(s.singleNumbers2(nums=[4, 1, 4, 6]))

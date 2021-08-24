@@ -38,6 +38,8 @@ class Solution(object):
         newHead = self.partRev(hair, tail)
         hair.next = self.reverseKGroup(tail, k)
         return newHead
+
+
 if __name__ == '__main__':
     s = Solution()
     list = [1, 2, 3, 4, 5]
