@@ -37,13 +37,13 @@ class Solution(object):
         :rtype: ListNode
         """
         slow, fast = head, head
-        finder = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             if fast == slow:
-                while finder != slow:
-                    finder = finder.next
+                fast = head
+                while slow != fast:
+                    fast = fast.next
                     slow = slow.next
-                return finder
+                return slow
         return None

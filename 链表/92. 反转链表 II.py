@@ -85,3 +85,59 @@ class Solution(object):
         if head:
             pretail.next = head
         return ans.next
+
+    def reverseBetween3(self, head, left, right):
+        """
+        :type head: ListNode
+        :type left: int
+        :type right: int
+        :rtype: ListNode
+        """
+        if not head:
+            return None
+        if left == right:
+            return head
+        ans = ListNode(0)
+        ans.next = head
+        pre = ans
+        for _ in range(left-1):
+            pre = pre.next
+        sub_right = pre
+        for _ in range(right-left+1):
+            sub_right = sub_right.next
+        sub_left = pre.next
+        origin_right = sub_right.next
+        pre.next = None
+        sub_right.next = None
+        self.resverPart(sub_left)
+
+        pre.next = sub_right
+        sub_left.next = origin_right
+
+        return ans.next
+
+    def resverPart(self, head):
+        pre = None
+        while head:
+            temp = head.next
+            head.next = pre
+            pre = head
+            head = temp
+
+
+if __name__ == '__main__':
+    node1 = ListNode(1)
+    node2 = ListNode(2)
+    node3 = ListNode(3)
+    node4 = ListNode(4)
+    node5 = ListNode(5)
+    # node1.next = node2
+    # node2.next = node3
+    node3.next = node5
+    # node4.next = node5
+    node5.next = None
+    s = Solution()
+    ans = s.reverseBetween3(node3, 1, 2)
+    while ans:
+        print(ans.val)
+        ans = ans.next
