@@ -47,7 +47,7 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        ans = ListNode('a')
+        ans = ListNode(0)
         ans.next = head
         pre, cur = None, ans
         while cur:
@@ -58,7 +58,7 @@ class Solution(object):
                 while cur and cur.val == temp:
                     cur = cur.next
             pre.next = cur
-        return head
+        return ans.next
 
     # 用字典统计
     # 用例 [-3,-1,-1,0,0,0,0,0,2] 返回值是：[2,-3]，预期结果是：[-3,2]，没能保持原序，蓝瘦。
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     # while head.next:
     #     print(head.next.val)
     #     head = head.next
-    ans = Solution().deleteDuplicates3(head.next)
+    ans = Solution().deleteDuplicates2(head.next.next)
     while ans:
         print(ans.val)
         ans = ans.next
