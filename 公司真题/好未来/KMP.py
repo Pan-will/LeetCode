@@ -1,5 +1,5 @@
-"""encoding=UTF-8"""
-def kmp(self, S, T):
+# coding=utf-8
+def kmp(S, T):
     lens = len(S)
     lent = len(T)
     # 判空
