@@ -1,28 +1,28 @@
+"""
+输入：1,2,2,3,4,4,4,5
+输出：1,3,5
+"""
 class ListNode(object):
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
-
 class Solution(object):
     def deleteDuplicates(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        if not head: return None
-        res = ListNode(0)
-        res.next = head
-        pre, cur = None, res
-        while cur:
+        if not head:
+            return None
+        ans = ListNode(0)
+        ans.next = head
+        pre, cur = None, ans
+        while cur.next:
             pre = cur
             cur = cur.next
             while cur and cur.next and cur.val == cur.next.val:
                 temp = cur.val
-                while cur and cur.val == temp:
+                while cur.val == temp:
                     cur = cur.next
-            pre.next = cur
-        return res.next
+                pre.next = cur
+        return ans.next
 
 
 if __name__ == '__main__':

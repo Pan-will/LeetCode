@@ -1,11 +1,10 @@
 """
-给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
+给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。
 
-示例 1:
+示例1:
 输入: 1->2->3->3->4->4->5
 输出: 1->2->5
 """
-
 
 # Definition for singly-linked list.
 class ListNode(object):
@@ -15,9 +14,24 @@ class ListNode(object):
 
 
 class Solution(object):
+    def deleteDuplicates(self, head):
+        if not head: return None
+        ans = ListNode(0)
+        ans.next = head
+        pre, cur = None, ans
+        while cur and cur.next:
+            pre = cur
+            cur = cur.next
+            while cur and cur.next and cur.val == cur.next.val:
+                temp = cur.val
+                while cur.val == temp:
+                    cur = cur.next
+                pre.next = cur
+        return ans.next
+
     # 转list去重，再新建链表返回结果。
     # 注，本题结果要保留节点的原顺序
-    def deleteDuplicates(self, head):
+    def deleteDuplicates2(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -42,7 +56,7 @@ class Solution(object):
             node = node.next
         return pre.next
 
-    def deleteDuplicates2(self, head):
+    def deleteDuplicates3(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -92,8 +106,8 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    # list = [-3, -1, -1, 0, 0, 0, 0, 0, 2]
-    list = [1, 1, 1, 2, 3]
+    list = [-3, -1, -1, 0, 0, 0, 0, 0, 2]
+    # list = [1, 1, 1, 2, 3]
     node = ListNode(0)
     head = ListNode(0)
     head.next = node
@@ -104,7 +118,7 @@ if __name__ == '__main__':
     # while head.next:
     #     print(head.next.val)
     #     head = head.next
-    ans = Solution().deleteDuplicates2(head.next.next)
+    ans = Solution().deleteDuplicates(head.next.next)
     while ans:
         print(ans.val)
         ans = ans.next
