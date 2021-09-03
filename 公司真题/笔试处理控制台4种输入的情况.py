@@ -10,6 +10,11 @@ if __name__ == '__main__':
     m, n = map(int, input().split())
     print(m, n, "%.5f" % (m + n))
 
+    # 控制台一行内输入多个数，可以用多个变量分别接收，也可以用list接收
+    a, b, c, d, e = map(int, input().split())
+    nums = list(map(int, input().split()))
+    print(a, b, c, d, e, nums)
+
     ##################
     ##################
 
