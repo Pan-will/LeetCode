@@ -28,7 +28,23 @@ class Solution(object):
                 nums.pop(i + 1)
         return len(nums)
 
+    # 删除数组重复元素，只要重复过，全删掉，只留下未重复的元素
+    def delSame(self, nums):
+        if not nums:
+            return None
+        i = 0
+        while i < len(nums) - 1:
+            if i < len(nums) - 1 and nums[i + 1] == nums[i]:
+                temp = nums[i]
+                while i < len(nums) - 1 and nums[i + 1] == temp:
+                    nums.pop(i)
+                nums.pop(i)
+            else:
+                i += 1
+        return nums
+
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.removeDuplicates(nums=[0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
+    print(solution.delSame(nums=[0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
+    print(solution.delSame([0, 1, 1, 2, 3, 3, 4, 5, 5, 5, 6]))
