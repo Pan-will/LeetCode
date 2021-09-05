@@ -9,7 +9,14 @@
 样例输出
 1 2 1 2 3
 """
-
+def getAns(num):
+    sum = 0
+    for i in range(2, n+1):
+        if num <= sum + i and num > sum:
+            print(num - (i-2) * 2)
+            break
+        else:
+            sum += i
 
 def getRes(n):
     recPri = []
@@ -26,11 +33,11 @@ def getRes(n):
             recPri.append(-1)
             up += 1  # 下一轮涨的天数也递增1天
             day = 0  # 重新记录天数
-    # print("股票第二天起涨跌趋势：", recPri)
+    print("长度：", len(recPri), "涨跌趋势：", recPri)
     price = [1] + [0 for _ in range(n - 1)]
     for i in range(1, n):
         price[i] = price[i - 1] + recPri[i - 1]
-    # print("股票价格：", price)
+    print("长度：", len(price), "股票价格：", price)
     print(price[-1])
 
 
@@ -38,3 +45,4 @@ if __name__ == '__main__':
     while 1:
         n = int(input())
         getRes(n)
+        getAns(n)
