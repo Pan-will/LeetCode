@@ -14,11 +14,14 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 """
 思路：需要注意的就是指针的指向处理。
     pre指针跟随l1和l2中值较小者向后顺移，每一步指向二者中的较小者，负责确立指向关系；
     若l1>=l2,pre指向l2，l2向后顺移一位。否则pre指向l1，l1向后顺移。
 """
+
+
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
         """
