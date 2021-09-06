@@ -9,14 +9,17 @@
 样例输出
 1 2 1 2 3
 """
+
+
 def getAns(num):
     sum = 0
-    for i in range(2, n+1):
+    for i in range(2, n + 1):
         if num <= sum + i and num > sum:
-            print(num - (i-2) * 2)
+            print(num - (i - 2) * 2)
             break
         else:
             sum += i
+
 
 def getRes(n):
     recPri = []
@@ -40,9 +43,32 @@ def getRes(n):
     print("长度：", len(price), "股票价格：", price)
     print(price[-1])
 
+# 优化，只用一轮遍历，仍然超时
+def findRes(n):
+    res = [1]
+    while n < 3:
+        print(n)
+        return
+    day = 0  # 一轮开始之前
+    up = 1  # 当前轮连涨带跌的天数，初始化为第一轮
+    money = 1
+    while len(res) < n + 1:
+        if day < up:
+            day += 1
+            money = money + 1
+            res.append(money)
+        elif day == up:  # 每涨完一轮，会跌一天
+            up += 1  # 下一轮涨的天数也递增1天
+            day = 0  # 重新记录天数
+            money = money - 1
+            res.append(money)
+    print(res[-2])
+
 
 if __name__ == '__main__':
     while 1:
-        n = int(input())
-        getRes(n)
-        getAns(n)
+        n = input()
+        if not n:
+            break
+        else:
+            findRes(int(n))

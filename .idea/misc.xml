@@ -3,8 +3,5 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/公司真题/测试输入三个数.py" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python3.6_Base" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (LeetCode)" project-jdk-type="Python SDK" />
 </project>
