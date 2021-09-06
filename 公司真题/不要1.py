@@ -1,10 +1,7 @@
 def helper(n):
-    tar = []
     while n > 0:
-        t = n % 10
-        if t != 1:
+        if n % 10 != 1:
             return False
-        tar.append(t)
         n = n // 10
     return True
 
