@@ -3,6 +3,7 @@
 # @return string字符串
 #
 class Solution:
+    # 思路：滑动窗口，每次移动n-1个单位
     def railEncode(self, data, n):
         if not data:
             return ""
@@ -10,11 +11,11 @@ class Solution:
         if size <= n:
             return data
         res = [[] for _ in range(n)]
-        
+        # 偶数次正序放到res里
 
+        # 奇数次要倒序放到res里
 
-
-        print(res)
+        # 格式化输入
         ans = ""
         for item in res:
             ans += "".join(item)
@@ -47,5 +48,5 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     data = "abcdefghijklmno"
-    # print(data[10: 20], len(data[10:20]))
+    print(data[10: 20], len(data[10:20]))
     s.railEncode(data, 3)
