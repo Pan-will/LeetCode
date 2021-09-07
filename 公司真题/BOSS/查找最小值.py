@@ -7,19 +7,20 @@ class Solution:
         tar = []
         for i in tem:
             tar.append(int(i))
-        print(tar)
         min_val = min(tar)
-        min_index = 0
-        temp = tar[::-1]
-        print(temp)
-        for i, num in enumerate(temp):
-            if num == min_val:
+        min_index = tar.index(min_val)
+        for i in range(min_index, len(tar)):
+            if tar[i] == min_val:
                 min_index = i
         tar.pop(min_index)
         tar = [min_val] + tar
-        print(tar)
+        res = 0
+        for num in tar:
+            res = res * 10 + num
+        print(res)
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.smallest(261235))
+    s.smallest(261235)
+    s.smallest(100000)
