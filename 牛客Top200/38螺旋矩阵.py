@@ -1,27 +1,27 @@
 class Solution:
-    def spiralOrder(self, matrix):
+    def spiralOrder(self, array):
         res = []
-        if not matrix:
+        if not array:
             return res
         beginRow = 0
-        endRow = len(matrix) - 1
+        endRow = len(array) - 1
         beginCol = 0
-        endCol = len(matrix[0]) - 1
+        endCol = len(array[0]) - 1
         while beginRow <= endRow and beginCol <= endCol:
             for i in range(beginCol, endCol + 1):
-                res.append(matrix[beginRow][i])
+                res.append(array[beginRow][i])
             beginRow += 1
             for i in range(beginRow, endRow + 1):
-                res.append(matrix[i][endCol])
+                res.append(array[i][endCol])
             endCol -= 1
             if beginRow <= endRow:
                 # range函数是左开右闭的
                 for i in range(endCol, beginCol - 1, -1):
-                    res.append(matrix[endRow][i])
+                    res.append(array[endRow][i])
                 endRow -= 1
             if beginCol <= endCol:
                 for i in range(endRow, beginRow - 1, -1):
-                    res.append(matrix[i][beginCol])
+                    res.append(array[i][beginCol])
                 beginCol += 1
         return res
 
