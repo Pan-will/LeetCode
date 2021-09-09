@@ -13,6 +13,7 @@ class Solution:
         res = [[] for _ in range(n)]
         # 偶数次正序放到res里
 
+
         # 奇数次要倒序放到res里
 
         # 格式化输入

@@ -9,7 +9,7 @@ class Solution:
             tar.append(int(j))
         min_val = min(tar)
         min_index = tar.index(min_val)
-        for i in range(len(tar)-1, min_index, -1):
+        for i in range(len(tar) - 1, min_index, -1):
             if tar[i] == min_val:
                 min_index = i
                 break
