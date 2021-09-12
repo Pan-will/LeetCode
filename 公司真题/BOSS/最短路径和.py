@@ -19,8 +19,6 @@ class Solution:
         for r in range(1, row):
             for c in range(1, col):
                 dp[r][c] = min(dp[r - 1][c], dp[r][c - 1]) + grid[r][c]
-        # for i in range(r + 1):
-        #     print(dp[i])
         return dp[x][y]
 
 
@@ -28,4 +26,4 @@ if __name__ == '__main__':
     s = Solution()
     print(s.solution([[1, 2, 3, 6, 2, 8, 1], [4, 8, 2, 4, 3, 1, 9], [1, 5, 3, 7, 9, 3, 1], [4, 9, 2, 1, 6, 9, 5],
                       [7, 6, 8, 4, 7, 2, 6], [2, 1, 6, 2, 4, 8, 7], [8, 4, 3, 9, 2, 5, 8]], 0, 0))
-    print(s.solution([[1, 2, 3], [4, 8, 2], [1, 5, 3]] , 2, 2))
+    print(s.solution([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2))

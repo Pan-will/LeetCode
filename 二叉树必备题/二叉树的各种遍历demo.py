@@ -22,7 +22,6 @@ def preorder(root):
     return res
 
 
-
 # 中序
 def inorder(root):
     if not root:
@@ -139,7 +138,7 @@ def getDeep(root):
 
 
 # 判断是否完全二叉树
-def judgeComplete( root):
+def judgeComplete(root):
     if not root: return True
     queue = [root]
     h = 0
