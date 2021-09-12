@@ -21,7 +21,7 @@ class Solution(object):
             # 当前元素小于或等于 pivot
             if arr[i] <= base:
                 cur = cur + 1
-                arr[cur], arr[j] = arr[j], arr[cur]
+                arr[cur], arr[high] = arr[high], arr[cur]
         arr[cur + 1], arr[high] = arr[high], arr[cur + 1]
         return cur + 1
 
@@ -41,6 +41,7 @@ class Solution(object):
         if not nums:
             return None
         self.quick_sort(nums, 0, len(nums) - 1)
+        print(nums)
         return nums[-k]
 
 
