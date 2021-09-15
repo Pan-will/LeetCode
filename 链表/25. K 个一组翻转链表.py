@@ -44,11 +44,12 @@ if __name__ == '__main__':
     s = Solution()
     list = [1, 2, 3, 4, 5]
     head = ListNode(0)
+    node = head
     for i in range(len(list)):
         node.next = ListNode(0)
         node.next.val = list[i]
         node = node.next
-    ans = Solution().oddEvenList2(head.next)
+    ans = Solution().reverseKGroup(head.next, 2)
     while ans:
-        print(ans.val)
+        print(ans.val, end=" -- ")
         ans = ans.next
