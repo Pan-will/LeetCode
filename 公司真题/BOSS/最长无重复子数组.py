@@ -20,5 +20,5 @@ def getAns(string):
 
 
 if __name__ == '__main__':
-    string = "abcdac"
+    string = "abc2dac65428879654"
     print(getAns(string))
