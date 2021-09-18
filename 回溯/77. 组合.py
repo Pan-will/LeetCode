@@ -17,9 +17,6 @@
 
 
 class Solution(object):
-    def __init__(self):
-        self.res = []
-
     def combine(self, n, k):
         """
         :type n: int
@@ -31,28 +28,19 @@ class Solution(object):
         res = []
         visit = [0 for _ in range(n)]
         self.dfs(nums, n, k, 0, temp, res, visit)
-        return self.res
+        return res
+
     def dfs(self, nums, n, k, begin, temp, res, visit):
-        if len(temp) == k: res.append(temp)
+        if len(temp) == k:
+            res.append(temp)
         else:
             for i in range(n):
                 if visit[i] == 0:
                     visit[i] = 1
-                    self.dfs(nums, n, k, begin, temp+[nums[i]], res, visit)
+                    self.dfs(nums, n, k, begin, temp + [nums[i]], res, visit)
                     visit[i] = 0
-
-
-    # def dfs(self, nums, n, k, begin, temp):
-    #     # 定义递归出口：长度为k
-    #     if len(temp) == k:
-    #         self.res.append(temp)
-    #     for i in range(begin, n):
-    #         if len(temp) > k:
-    #             break
-    #         # 递归
-    #         self.dfs(nums, n, k, i + 1, temp + [nums[i]])
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.combine(5,3))
+    print(s.combine(5, 3))
