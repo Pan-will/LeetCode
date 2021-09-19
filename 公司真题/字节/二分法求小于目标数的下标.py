@@ -15,4 +15,4 @@ def search(nums, target):
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 5, 6, 7]
-    print(search(nums, 7))
+    print(search(nums, 4))

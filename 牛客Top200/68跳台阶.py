@@ -5,7 +5,7 @@ class Solution:
             return number
         a, b = 1, 2
         ans = a + b
-        for i in range(3, number+1):
+        for i in range(2, number):
             ans = a + b
             a = b
             b = ans

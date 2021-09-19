@@ -15,7 +15,7 @@ class Solution:
         res = 0
         for i, word1 in enumerate(words):
             for j in range(i + 1, len(words)):
-                if self.hasSameWord(word1, words[j]) == False:
+                if not self.hasSameWord(word1, words[j]):
                     continue
                 else:
                     len1 = self.getDiffNum(word1)
