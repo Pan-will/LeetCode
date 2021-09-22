@@ -1,4 +1,4 @@
-class S():
+class S(object):
     def solve(self, cell, m):
         if not cell:
             return False
