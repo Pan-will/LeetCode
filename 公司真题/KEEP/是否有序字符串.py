@@ -11,7 +11,7 @@ class S(object):
         print("原串中a的下标为：", in_a)
         if in_a == 0:
             return cell == "".join(zcell)
-        elif in_a == n-1:
+        elif in_a == n - 1:
             return cell[::-1] == "".join(zcell)
         i, j = in_a - 1, in_a + 1
         while zcell_i < n:
