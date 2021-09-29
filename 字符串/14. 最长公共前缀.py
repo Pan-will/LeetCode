@@ -1,5 +1,6 @@
 import re
 
+
 class Solution(object):
     def longestCommonPrefix(self, strs):
         """
@@ -54,8 +55,8 @@ class Solution(object):
         if str0 == '': return str1
         if str1 == '': return str0
         if str0 == str1: return str0
-        len0=len(str0)
-        len1=len(str1)
+        len0 = len(str0)
+        len1 = len(str1)
         h = min(len0, len1)
         ans = ''
         i = 0
@@ -67,6 +68,7 @@ class Solution(object):
             j += 1
         else:
             return ans
+
 
 if __name__ == '__main__':
     solution = Solution()

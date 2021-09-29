@@ -8,7 +8,8 @@ class S():
             else:
                 j = mid - 1
         return i
-    def help(self,a,b):
+
+    def help(self, a, b):
         print(isinstance())
 
 
