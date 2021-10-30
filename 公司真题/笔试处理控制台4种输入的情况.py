@@ -19,7 +19,7 @@ if __name__ == '__main__':
     ##################
 
     # 控制台输入一个整数list
-    arrs = list(map(float, input().split()))
+    arrs = list(map(int, input().split()))
     print(arrs)
 
     ##################
