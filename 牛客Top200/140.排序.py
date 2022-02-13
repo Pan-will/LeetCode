@@ -42,22 +42,22 @@ class Solution:
         n = len(arr)
         for i in range(n):
             for j in range(0, n - i - 1, 1):
-                if arr[j] > arr[j+1]:
-                    arr[j], arr[j+1] = arr[j+1], arr[j]
+                if arr[j] > arr[j + 1]:
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
         return arr
+
     def BubbleSort_new(self, arr):
         if not arr or len(arr) < 2: return arr
         n = len(arr)
         flag = True
-        while n-1 > 0 and flag:
+        while n - 1 > 0 and flag:
             flag = False
-            for i in range(n-1):
-                if arr[i] > arr[i+1]:
-                    arr[i], arr[i+1] = arr[i+1], arr[i]
+            for i in range(n - 1):
+                if arr[i] > arr[i + 1]:
+                    arr[i], arr[i + 1] = arr[i + 1], arr[i]
                     flag = True
             n -= 1
         return arr
-
 
 
 if __name__ == '__main__':
